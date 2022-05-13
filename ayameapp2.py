@@ -50,20 +50,9 @@ def ayame_class():
     clf = svm.LinearSVC()
     clf.fit(iris.data, iris.target) #第1引数に特徴量、第2引数にラベルデータ
     classfy = clf.predict([[float(a), float(b), float(c), float(d)]])
+    variety = ["Setosa（セトサ）", "Versicolor（バージカラー）",  "Versinica（バージニカ）"]
     
-    # 0: Setosa,1: Versicolor,2: Versinica
-    
-    #結果画面の設定
-    if classfy == 0:
-        Variety = "Setosa（セトサ）"
-    elif classfy == 1:
-        Variety = "Versicolor（バージカラー）"
-    elif classfy == 2:
-        Variety = "Versinica（バージニカ）"
-    else:
-        Variety = "わかりません."
-
-    result = tk.Label(text = "品種は" + Variety + "です!")
+    result = tk.Label(text = "品種は" + variety[int(classfy)] + "です!")
     result.place(x=60, y=240)
 
 # ボタンの作成,commandにて実行関数を指定
